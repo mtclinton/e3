@@ -52,7 +52,7 @@ class Loop():
                     if EOL1 in self.requests[fileno] or EOL2 in self.requests[fileno]:
                         self._epoll.modify(fileno, select.EPOLLOUT | select.EPOLLET)
                         headercontent = self.requests[fileno].decode()[:].split("\r\n")[0]
-                        url = headercontent.split()[1][1:].rstrip('\\')
+                        url = headercontent.split()[1][1:]
                         if(len(url) == 0):
                             url = "Hello add characters to your url to see the echo"
                         response = 'HTTP/1.0 200 OK\r\nDate: Mon, 1 Jan 1996 01:01:01 GMT\r\n'
