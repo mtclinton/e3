@@ -2,6 +2,8 @@ E3 epoll edge echo server
 ========================
 E3 is an epoll edge-triggered server that echos the client request url
 
+![Alt Text](epoll.gif)
+
 example:
 
     import e3
