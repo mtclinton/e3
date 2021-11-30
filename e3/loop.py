@@ -35,7 +35,7 @@ class Loop():
         self.connections[connection.fileno()] = connection
         self.requests[connection.fileno()] = b''
 
-    def start(self, server):
+    def start(self):
         while True:
             events = self._epoll.poll(1)
             for fileno, event in events:
