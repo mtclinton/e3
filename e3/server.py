@@ -18,9 +18,9 @@ class Server():
         self._socket.bind(("", port))
         self._socket.listen(128)
         self.loop.register_handler(self._socket.fileno())
-        self.loop.add_handler(self._socket.fileno(), self.start_server)
+        self.loop.add_handler(self._socket.fileno(), self.accept_connection)
 
-    def start_server(self):
+    def accept_connection(self):
         connection, address = self._socket.accept()
         connection.setblocking(0)
         self.loop.handle_connection(connection)

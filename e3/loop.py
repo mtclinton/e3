@@ -40,8 +40,8 @@ class Loop():
             events = self._epoll.poll(1)
             for fileno, event in events:
                 if fileno == self.server_fd:
-                    start_server = self._handlers[fileno]
-                    start_server()
+                    accept_connection = self._handlers[fileno]
+                    accept_connection()
 
                 elif event & select.EPOLLIN:
                     try:
