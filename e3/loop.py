@@ -50,6 +50,7 @@ class Loop():
                     except socket.error:
                         pass
                     if EOL1 in self.requests[fileno] or EOL2 in self.requests[fileno]:
+                        print(self.requests[fileno])
                         self._epoll.modify(fileno, select.EPOLLOUT | select.EPOLLET)
                         headercontent = self.requests[fileno].decode()[:].split("\r\n")[0]
                         url = headercontent.split()[1][1:]
